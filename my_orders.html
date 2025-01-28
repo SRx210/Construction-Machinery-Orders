@@ -1,0 +1,111 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ConstructionDB";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT machinery_name, type, model, manufacturer, quantity, `condition`, description FROM Machinery";
+$result = mysqli_query($conn, $sql);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .orders-container {
+            width: 80%;
+            max-width: 1000px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        .orders-container h2 {
+            text-align: center;
+            color: darkslategray;
+            margin-bottom: 20px;
+        }
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .order-table, .order-table th, .order-table td {
+            border: 1px solid darkgray;
+        }
+        .order-table th {
+            background-color: teal;
+            color: white;
+            padding: 10px;
+        }
+        .order-table td {
+            background-color: white;
+            color: black;
+            padding: 10px;
+        }
+        .no-orders {
+            text-align: center;
+            color: gray;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="orders-container">
+        <h2>My Orders</h2>
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Machinery Name</th>
+                    <th>Type</th>
+                    <th>Model</th>
+                    <th>Manufacturer</th>
+                    <th>Quantity</th>
+                    <th>Condition</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
+                                <td>{$row['machinery_name']}</td>
+                                <td>{$row['type']}</td>
+                                <td>{$row['model']}</td>
+                                <td>{$row['manufacturer']}</td>
+                                <td>{$row['quantity']}</td>
+                                <td>{$row['condition']}</td>
+                                <td>{$row['description']}</td>
+                              </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='7' class='no-orders'>No machinery added to your orders yet.</td></tr>";
+                }
+
+                mysqli_close($conn);
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

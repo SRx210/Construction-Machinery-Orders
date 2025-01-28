@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Construction & Machinery Equipment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #FF7F50, #FF1493);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+            color: #333;
+        }
+        .signup-form {
+            background: linear-gradient(to bottom right, #ffffff, #f0f8ff);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+            border: 2px solid #ff6347;
+        }
+        .signup-form h2 {
+            text-align: center;
+            color: #ff6347;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .signup-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4b0082;
+        }
+        .signup-form input, .signup-form select, .signup-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #4caf50;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        .signup-form input:focus, .signup-form select:focus, .signup-form textarea:focus {
+            border-color: #ff6347;
+            outline: none;
+        }
+        .signup-form input[type="radio"], .signup-form input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .signup-form .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .signup-form button, .signup-form input[type="reset"], .signup-form input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .signup-form button:hover, .signup-form input[type="reset"]:hover, .signup-form input[type="submit"]:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+        .inline-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .signup-form small {
+            color: #666;
+            display: block;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        .signup-form .signin-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .signup-form .signin-link a {
+            color: #ff6347;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .signup-form .signin-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            .signup-form {
+                padding: 20px;
+            }
+            .signup-form h2 {
+                font-size: 1.5em;
+            }
+            .signup-form input, .signup-form select, .signup-form textarea {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-form">
+        <h2>Sign Up</h2>
+        <form action="sign_up_page_php.php" method="POST">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required>
+            <label>Gender:</label>
+            <div class="radio-group">
+                <label for="male"><input type="radio" id="male" name="gender" value="male"> Male</label>
+                <label for="female"><input type="radio" id="female" name="gender" value="female"> Female</label>
+            </div>
+            <label>Interests:</label>
+            <div class="checkbox-group">
+                <label for="heavy-machinery"><input type="checkbox" id="heavy-machinery" name="interests" value="heavy-machinery"> Heavy Machinery</label>
+                <label for="tools"><input type="checkbox" id="tools" name="interests" value="tools"> Tools</label>
+                <label for="light-duty-machinery"><input type="checkbox" id="light-duty-machinery" name="interests" value="light-duty-machinery"> Light Duty Machinery</label>
+            </div>
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="in">India</option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="au">Australia</option>
+            </select>
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+            <label for="favcolor">Favorite Color:</label>
+            <input type="color" id="favcolor" name="favcolor">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob">
+            <label for="appointment">Appointment Date and Time:</label>
+            <input type="datetime-local" id="appointment" name="appointment">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" name="resume">
+            <small>Accepted formats: PDF, DOCX</small>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" max="100">
+            <label for="uname">Username:</label>
+            <input type="text" id="uname" name="uname" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            <div class="buttons">
+                <input type="reset" value="Reset">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        <div class="signin-link">
+            <p>Already have an account? <a href="sign_in.html">Sign In</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

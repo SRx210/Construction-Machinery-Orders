@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Machinery Equipment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #009688, #4caf50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .add-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 700px;
+            overflow: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .add-form h2 {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #e74c3c;
+            font-size: 2em;
+            font-weight: 600;
+        }
+        .add-form label {
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #34495e;
+            font-weight: 500;
+        }
+        .add-form input, .add-form select, .add-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            transition: border-color 0.3s;
+        }
+        .add-form input:focus, .add-form select:focus, .add-form textarea:focus {
+            border-color: #009688;
+            outline: none;
+        }
+        .add-form .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .add-form .buttons input[type="submit"],
+        .add-form .buttons input[type="reset"],
+        .add-form .buttons .home-button {
+            width: 48%;
+            padding: 10px;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+			margin: 10px;
+        }
+        .add-form .buttons input[type="submit"] {
+            background-color: #3498db;
+        }
+        .add-form .buttons input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        .add-form .buttons input[type="reset"] {
+            background-color: #e74c3c;
+        }
+        .add-form .buttons input[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+        .add-form .buttons .home-button {
+            background-color: #27ae60;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .add-form .buttons .home-button:hover {
+            background-color: #2ecc71;
+        }
+        .add-form .radio-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .add-form .radio-group label {
+            margin-right: 10px;
+            color: #333;
+        }
+        .add-form .radio-group input {
+            accent-color: #009688;
+        }
+        @media (max-width: 480px) {
+            .add-form {
+                padding: 15px;
+            }
+            .add-form h2 {
+                font-size: 1.5em;
+            }
+            .add-form input, .add-form select, .add-form textarea {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="add-form">
+        <h2>Add Machinery Equipment</h2>
+        <form id="addForm" action="add_page_php.php" method="POST" onsubmit="return validateForm()">
+		
+            <label for="customer_name">Customer Name:</label>
+            <input type="text" id="customer_name" name="customer_name" required>
+
+            <label for="customer_email">Customer Email:</label>
+            <input type="email" id="customer_email" name="customer_email" required>
+			
+            <label for="machinery-name">Machinery Name:</label>
+            <select id="machinery-name" name="machinery-name" required>
+                <option value="">Select Machinery</option>
+                <option value="excavator">Excavator</option>
+                <option value="bulldozer">Bulldozer</option>
+                <option value="crane">Crane</option>
+                <option value="loader">Loader</option>
+                <option value="grader">Grader</option>
+            </select>
+
+            <label>Type:</label>
+            <div class="radio-group">
+                <label style="color: #2980b9;"><input type="radio" name="type" value="heavy-duty"> Heavy-Duty</label>
+                <label style="color: #2980b9;"><input type="radio" name="type" value="light-duty"> Light-Duty</label>
+                <label style="color: #2980b9;"><input type="radio" name="type" value="specialized"> Specialized</label>
+            </div>
+
+            <label for="model">Model:</label>
+            <select id="model" name="model" required>
+                <option value="">Select Model</option>
+                <option value="standard">Standard</option>
+                <option value="advanced">Advanced</option>
+                <option value="pro">Pro</option>
+                <option value="custom">Custom</option>
+            </select>
+
+            <label for="manufacturer">Manufacturer:</label>
+            <select id="manufacturer" name="manufacturer" required>
+                <option value="">Select Manufacturer</option>
+                <option value="caterpillar">Caterpillar</option>
+                <option value="volvo">Volvo</option>
+                <option value="hitachi">Hitachi</option>
+                <option value="komatsu">Komatsu</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity" required>
+
+            <label>Condition:</label>
+            <div class="radio-group">
+                <label style="color: #2980b9;"><input type="radio" name="condition" value="new"> New</label>
+                <label style="color: #2980b9;"><input type="radio" name="condition" value="used"> Used</label>
+                <label style="color: #2980b9;"><input type="radio" name="condition" value="refurbished"> Refurbished</label>
+            </div>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Enter Description" required></textarea>
+
+            <div class="buttons">
+                <input type="submit" value="Add Equipment">
+                <input type="reset" value="Reset">
+                <a href="home_page.html" class="home-button">Home</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const machineryName = document.getElementById("machinery-name").value;
+            if (machineryName === "") {
+                alert("Please select a Machinery Name.");
+                return false;
+            }
+            const type = document.querySelector('input[name="type"]:checked');
+            if (!type) {
+                alert("Please select a Type.");
+                return false;
+            }
+            const model = document.getElementById("model").value;
+            if (model === "") {
+                alert("Please select a Model.");
+                return false;
+            }
+            const manufacturer = document.getElementById("manufacturer").value;
+            if (manufacturer === "") {
+                alert("Please select a Manufacturer.");
+                return false;
+            }
+            const quantity = document.getElementById("quantity").value;
+            if (quantity === "" || quantity <= 0 || !Number.isInteger(Number(quantity))) {
+                alert("Please enter a valid Quantity (positive integer).");
+                return false;
+            }
+            const condition = document.querySelector('input[name="condition"]:checked');
+            if (!condition) {
+                alert("Please select a Condition.");
+                return false;
+            }
+            const description = document.getElementById("description").value;
+            if (description.length < 10) {
+                alert("Description must be at least 10 characters.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>

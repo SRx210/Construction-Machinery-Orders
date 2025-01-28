@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Construction and Machinery Equipment</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        .content {
+            flex: 1;
+        }
+        header {
+            background-color: yellow;
+            padding: 10px;
+            text-align: center;
+            position: relative; 
+        }
+        footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: teal;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: teal;
+            font-size: 28px;
+            margin-top: 30px;
+            border-bottom: 2px solid teal;
+            padding-bottom: 5px;
+        }
+        p, a, dl dt, dl dd, li {
+            color: teal;
+            font-size: 18px;
+        }
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 800px;
+            margin-bottom: 20px;
+        }
+        .single-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            text-align: center;
+        }
+        .container img {
+            border: 3px solid teal;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            width: 300px;
+        }
+        .container img:hover {
+            transform: scale(1.05);
+        }
+        .caption {
+            font-style: italic;
+            color: grey;
+            margin-top: 10px;
+        }
+        .styled-div {
+            background-color: white;
+            border: 2px solid white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th {
+            background-color: teal;
+            color: white;
+            padding: 10px;
+        }
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+        a {
+            color: black;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        ul li, ol li {
+            margin-bottom: 10px;
+        }
+        dl dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        dl dd {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #16a085;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: black; 
+            z-index: 10; 
+        }
+        .menu {
+            display: none;
+            flex-direction: column;
+            background-color: #16a085;
+            position: absolute;
+            top: 60px;
+            right: 15px;
+            border-radius: 5px;
+            padding: 10px;
+            width: 150px;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+        .menu a {
+            color: black;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 8px;
+            text-align: center;
+            display: block;
+            border-bottom: 1px solid #14a17b;
+        }
+        .menu a:last-child {
+            border-bottom: none;
+        }
+        .menu a:hover {
+            background-color: #14a17b;
+        }
+        @media (min-width: 768px) {
+            .menu {
+                display: flex;
+                position: static;
+                flex-direction: row;
+                background: none;
+                width: auto;
+                padding: 0;
+            }
+            .menu a {
+                border: none;
+            }
+            .menu-icon {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Construction and Machinery Equipment</h1>
+        <button class="menu-icon" onclick="toggleMenu()">☰</button>
+        <div class="menu" id="menu">
+            <a href="fetch_orders.php" target="_blank"><b>My Orders</a></b>
+            <a href="sign_in.html" id="logout"><b>Logout</a></b>
+        </div>
+    </header>
+    <div class="content">
+        <p style="text-align: center; font-size: 18px;">Your one-stop shop for all construction and machinery needs.</p>
+
+        <div class="image-row">
+            <div class="container">
+                <img src="https://res.cloudinary.com/dsfzcj5qk/image/upload/f_auto,c_limit,w_1000,q_auto:low/v1659724978/blog/ForContractors_BestAttachmentsForDozers/Banner_BestAttachmentsForDozers.jpg" alt="Bulldozer">
+                <div class="caption">Bulldozer in action</div>
+            </div>
+            <div class="container">
+                <img src="https://th.bing.com/th/id/OIP.WL-juLSfXD4QhbAGY9_4dAHaFj?w=747&h=560&rs=1&pid=ImgDetMain" alt="Crane">
+                <div class="caption">Tower crane at a construction site</div>
+            </div>
+        </div>
+        <div class="single-image">
+            <div class="container">
+                <img src="https://www.agg-net.com/sites/default/files/styles/agg23_news_image_870x580/public/2023-06/volvo-mid-size-ec230-electric-excavator40.jpg.webp?itok=J_egPMLW" alt="Excavator">
+                <div class="caption">Excavator at a construction site</div>
+            </div>
+        </div>
+        <div class="image-row">
+            <div class="container">
+                <img src="https://www.agg-net.com/sites/default/files/images/articles/volvo-g990.jpg" alt="Grader">
+                <div class="caption">Grader in action</div>
+            </div>
+            <div class="container">
+                <img src="https://volvoceblog.com/wp-content/uploads/2019/07/Volvo-Load-Assist.jpg" alt="Loader">
+                <div class="caption">Loader moving heavy materials</div>
+            </div>
+        </div>
+
+        <p style="text-align: center;">
+            <a href="add_page.html" target="_blank" class="cta-button">Buy a Machine</a>
+        </p>
+
+        <h2>Our Popular Equipment</h2>
+        <table>
+            <tr>
+                <th>Equipment</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Bulldozer</td>
+                <td>Heavy-duty construction vehicle</td>
+                <td>Rs 70,00,000</td>
+            </tr>
+            <tr>
+                <td>Crane</td>
+                <td>Tower crane for high-rise buildings</td>
+                <td>Rs 55,00,000</td>
+            </tr>
+            <tr>
+                <td>Excavator</td>
+                <td>Versatile machine for digging and earthmoving</td>
+                <td>Rs 60,00,000</td>
+            </tr>
+            <tr>
+                <td>Grader</td>
+                <td>Precision machinery for leveling surfaces</td>
+                <td>Rs 45,00,000</td>
+            </tr>
+            <tr>
+                <td>Loader</td>
+                <td>Heavy equipment for loading materials</td>
+                <td>Rs 50,00,000</td>
+            </tr>
+        </table>
+
+        <h2>Equipment Specifications</h2>
+        <table>
+            <tr>
+                <th rowspan="2">Equipment</th>
+                <th colspan="2">Specifications</th>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <th>Power</th>
+            </tr>
+            <tr>
+                <td>Bulldozer</td>
+                <td>40,000 kg</td>
+                <td>350 HP</td>
+            </tr>
+            <tr>
+                <td>Crane</td>
+                <td>25,000 kg</td>
+                <td>400 HP</td>
+            </tr>
+            <tr>
+                <td>Excavator</td>
+                <td>30,000 kg</td>
+                <td>300 HP</td>
+            </tr>
+            <tr>
+                <td>Grader</td>
+                <td>20,000 kg</td>
+                <td>150 HP</td>
+            </tr>
+            <tr>
+                <td>Loader</td>
+                <td>18,000 kg</td>
+                <td>200 HP</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Construction and Machinery Equipment. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.style.display = menu.style.display === "none" || menu.style.display === "" ? "flex" : "none";
+        }
+    </script>
+</body>
+</html>

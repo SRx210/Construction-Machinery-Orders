@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+	<title> Sign In </title>
+	<style>
+		body {
+			background-color: #f0f8ff; /* Light blue background */
+			font-family: Arial, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+		h2 {
+			text-align: center;
+			font-size: 36px;
+			color: #2c3e50; /* Darker shade for the header */
+		}
+		.form-container {
+			background-color: #ffffff; /* White background for the form */
+			border-radius: 15px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+			padding: 30px;
+			width: 300px; /* Fixed width for form */
+			text-align: center;
+		}
+		.form-container label {
+			display: block;
+			margin-top: 20px;
+			color: #34495e; /* Darker text for labels */
+			font-size: 18px;
+		}
+		.form-container input[type="text"],
+		.form-container input[type="password"],
+		.form-container input[type="submit"],
+		.form-container input[type="reset"] {
+			width: 100%; /* Full width for inputs */
+			padding: 10px;
+			margin-top: 10px;
+			border: 2px solid #3498db; /* Light blue border */
+			border-radius: 5px;
+			font-size: 18px;
+			outline: none; /* Remove outline on focus */
+			transition: border-color 0.3s;
+		}
+		.form-container input[type="text"]:focus,
+		.form-container input[type="password"]:focus {
+			border-color: #2980b9; /* Darker blue on focus */
+		}
+		.form-container input[type="submit"],
+		.form-container input[type="reset"] {
+			background-color: #3498db; /* Light blue button */
+			color: white;
+			border: none;
+			cursor: pointer;
+			margin-top: 20px;
+			transition: background-color 0.3s;
+		}
+		.form-container input[type="submit"]:hover,
+		.form-container input[type="reset"]:hover {
+			background-color: #2980b9; /* Darker blue on hover */
+		}
+		.signup-link {
+			margin-top: 20px;
+			font-size: 16px;
+			color: #2c3e50; /* Darker shade for text */
+		}
+		.signup-link a {
+			color: #3498db; /* Light blue for link */
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.signup-link a:hover {
+			text-decoration: underline; /* Underline on hover */
+		}
+	</style>
+</head>
+<body>
+	<div class="form-container">
+		<h2> Sign In </h2>
+		<form action="sign_in_php.php" method="POST">
+			<label for="uname">Username</label>
+			<input type="text" id="uname" name="uname" placeholder="Enter your Username" required>
+
+			<label for="passwd">Password</label>
+			<input type="password" id="pwd" name="pwd" placeholder="Enter your Password" required>
+		
+			<input type="submit" value="Submit">			
+			<input type="reset" value="Reset">
+		</form>
+		<div class="signup-link">
+			<p>Don't have an account? <a href="sign_up_page.html">Sign Up</a></p>
+		</div>
+	</div>
+</body>
+</html>
